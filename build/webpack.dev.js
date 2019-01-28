@@ -2,8 +2,9 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:13:55 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-01-27 14:24:01
+ * @Last Modified time: 2019-01-28 17:01:58
  */
+'use strict'
 
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
@@ -13,6 +14,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, '../dist')
+    contentBase: path.resolve(__dirname, '../dist'),
+    stats: 'errors-only'
   }
 })
