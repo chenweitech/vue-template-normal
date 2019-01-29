@@ -2,7 +2,7 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:13:55 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-01-29 08:50:31
+ * @Last Modified time: 2019-01-29 12:05:39
  */
 'use strict'
 
@@ -15,6 +15,12 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, '../dist'),
-    stats: 'minimal'
+    stats: 'minimal',
+    port: 8080,
+    proxy: {
+      '/api/*': {
+        target: 'http://localhost:8081'
+      }
+    }
   }
 })
