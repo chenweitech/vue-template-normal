@@ -2,7 +2,7 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:32:51 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-01-28 17:00:13
+ * @Last Modified time: 2019-01-29 09:53:14
  */
 'use strict'
 
@@ -28,7 +28,7 @@ module.exports = merge(common, {
   },
   performance: {
     hints: 'warning',
-    maxAssetSize: 300000,
-    maxEntrypointSize: 500000
+    maxAssetSize: 30000000,
+    maxEntrypointSize: 50000000
   }
 })

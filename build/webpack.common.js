@@ -2,7 +2,7 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:04:38 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-01-28 17:07:59
+ * @Last Modified time: 2019-01-29 11:19:02
  */
 'use strict'
 const path = require('path');
@@ -10,11 +10,15 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');   // html处理插件
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');  // 提取CSS为单独文件
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');  // CSS模块资源优化插件
-const PurifyCssWebpack = require('purifycss-webpack');  // 消除冗余代码
-const glob = require('glob');   // 扫描插件
+// const PurifyCssWebpack = require('purifycss-webpack');  // 消除冗余代码
+// const glob = require('glob');   // 扫描插件
 const VueLoaderPlugin = require('vue-loader/lib/plugin');   // vue-loader
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+
+function resolve (dir) {
+  return path.join(__dirname, '..', dir);
+}
 
 module.exports = {
   entry: {
@@ -25,6 +29,7 @@ module.exports = {
     path: path.resolve('dist')
   },
   resolve: {
+    extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }
@@ -52,7 +57,10 @@ module.exports = {
       // 处理sass|scss|css文件
       {
         test: /\.(sa|sc|c)ss$/,
-        exclude: /node_modules/,
+        include: [
+          path.res
+        ],
+        include: [resolve('src'),resolve('/node_modules/element-ui/lib/')],
         use: [
           process.env.NODE_ENV !== 'production'
             ? 'vue-style-loader'
@@ -72,10 +80,7 @@ module.exports = {
                     "> 1%"
                   ]
                 })
-              ],
-              // config: {
-              //   path: __dirname
-              // }
+              ]
             }
           },
           {
@@ -89,6 +94,7 @@ module.exports = {
           }
         ]
       },
+      // 处理图片资源
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
@@ -98,6 +104,7 @@ module.exports = {
           outputPath: 'img/'
         }
       },
+      // 处理音频
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
@@ -107,6 +114,7 @@ module.exports = {
           outputPath: 'media/'
         }
       },
+      // 处理字体
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
@@ -137,9 +145,9 @@ module.exports = {
     // VueLoader
     new VueLoaderPlugin(),
     // clear useless errors
-    new PurifyCssWebpack({
-      paths: glob.sync(path.resolve( "./*.html"))
-    }),
+    // new PurifyCssWebpack({
+    //   paths: glob.sync(path.resolve( "./*.html"))
+    // }),
     // 提取CSS
     new MiniCssExtractPlugin({
       filename: "[name].css"                // 设置独立提取出的CSS的文件名
@@ -173,5 +181,5 @@ module.exports = {
         }
       }
     }
-  }
+  },
 }
