@@ -2,7 +2,7 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:04:38 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-01-29 11:19:02
+ * @Last Modified time: 2019-01-29 16:51:28
  */
 'use strict'
 const path = require('path');
@@ -22,7 +22,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js',
+    app: ['@babel/polyfill','./src/main.js'],
   },
   output: {
     filename: '[name].js',
@@ -45,14 +45,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-            }
-          }
-        ]
+        use: 'babel-loader'
       },
       // 处理sass|scss|css文件
       {
