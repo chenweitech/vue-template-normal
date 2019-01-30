@@ -2,7 +2,7 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:04:38 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-01-30 17:35:21
+ * @Last Modified time: 2019-01-30 17:49:43
  */
 'use strict'
 const path = require('path');
@@ -129,6 +129,8 @@ module.exports = {
       template: './index.html',         // 模版地址
       filename: 'index.html',               // 输出文件名
       minify: {
+        minifyCSS: true,                    // 压缩HTML中出现的CSS代码
+        minifyJS: true,                     // 压缩HTML中出现的JS代码
         removeComments: true,               // 移除注释
         collapseWhitespace: true,           // 压缩html中的空白文本节点
         collapseInlineTagWhitespace: true,  // 压缩行空白，保留&nbsp;空格
