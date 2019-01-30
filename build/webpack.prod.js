@@ -2,23 +2,15 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:32:51 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-01-29 09:53:14
+ * @Last Modified time: 2019-01-30 17:29:15
  */
 'use strict'
 
-process.env.NODE_ENV = 'production';
-
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
-const webpack = require('webpack');
+const common = require('./webpack.base.js');
 
 module.exports = merge(common, {
   mode: 'production',
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
-  ],
   stats: {
     colors: true,
     children: false,
