@@ -6,7 +6,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.prod.js"
+    "build": "NODE_ENV=production webpack --config build/webpack.prod.js"
   },
   "engines": {
     "node": ">= 6.11.5",
