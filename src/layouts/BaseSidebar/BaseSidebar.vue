@@ -1,23 +1,12 @@
 <script>
 // 读取路由配置文件
-import nav from '../configs/SideBarConfig'
+import navConfig from '@/configs/SideBarConfig';
+import withAuthorization from './withAuthorization';
 
 export default {
   name: 'BaseSidebar',
-  methods: {
-    // 根据path 生成递归的Index
-    generateIndex (arr, pIndex) {
-      arr.forEach((item) => {
-        item.index = pIndex? `${pIndex}/${item.path}` : `/${item.path}`;
-        if (item.hasOwnProperty('children')) {
-          this.generateIndex(item.children, item.index);
-        }
-      })
-    }
-  },
+  mixins: [withAuthorization],
   render () {
-    this.generateIndex(nav.config);
-
     const subMenuItem = function (arr) {
       let components = [];
       arr.map(item=>{
@@ -29,11 +18,11 @@ export default {
     return (
       <div>
         <el-menu
-          default-active={nav.defaultActive}
-          unique-opened={nav.uniqueOpened}
+          default-active={navConfig.defaultActive}
+          unique-opened={navConfig.uniqueOpened}
           router>
           {
-            nav.config.map(item => {
+            this.nav.map(item => {
               return (
                 <el-submenu index={item.index}>
                   <template slot="title">
