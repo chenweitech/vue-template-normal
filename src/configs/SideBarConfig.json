@@ -1,0 +1,22 @@
+{
+  "desc": "侧边导航栏配置文件",
+  "defaultActive": "/page1/page1-1",
+  "uniqueOpened": true,
+  "config": [
+    {
+      "icon": "el-icon-location",
+      "title": "导航一",
+      "path": "page1",
+      "children": [
+        {
+          "title": "标签1-1",
+          "path": "page1-1"
+        },
+        {
+          "title": "标签1-2",
+          "path": "page1-2"
+        }
+      ]
+    }
+  ]
+}

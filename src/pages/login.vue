@@ -9,7 +9,7 @@ export default {
   name: 'login',
   methods: {
     routerJump(){
-      this.$router.push('/hello')
+      this.$router.push('/page1')
     }
   }
 }

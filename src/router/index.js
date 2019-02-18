@@ -7,17 +7,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: 'login'
+      component: resolve => require(['../pages/login.vue'], resolve),
     },
     {
-      path: '/login',
-      name: '登录',
-      component: resolve => require(['../page/login.vue'], resolve)
-    },
-    {
-      path: '/hello',
-      name: '欢迎',
-      component: resolve => require(['../page/hello.vue'], resolve)
+      path: '/page1',
+      name: 'page1',
+      component: resolve => require(['../layouts/BaseLayout.vue'], resolve),
+      children: [
+        {
+          path: 'page1-1',
+          component: resolve => require(['../pages/page1.vue'], resolve),
+        }
+      ]
     }
   ]
 })
