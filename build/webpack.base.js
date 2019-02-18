@@ -2,7 +2,7 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:04:38 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-01-30 17:49:43
+ * @Last Modified time: 2019-02-18 08:47:03
  */
 'use strict'
 const path = require('path');
@@ -81,7 +81,7 @@ module.exports = {
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: path.resolve('./src/assets/css/common.scss')
+              resources: ['./src/styles/variables.scss','./src/styles/mixins.scss']
             }
           }
         ]
