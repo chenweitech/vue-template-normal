@@ -6,7 +6,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.prod.js"
+    "build": "NODE_ENV=production webpack --config build/webpack.prod.js"
   },
   "engines": {
     "node": ">= 6.11.5",
@@ -23,6 +23,8 @@
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0-beta.2",
+    "@vue/babel-preset-jsx": "^1.0.0-beta.2",
     "autoprefixer": "^9.4.6",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^8.0.5",
