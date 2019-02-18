@@ -2,7 +2,7 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:13:55 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-01-30 17:33:40
+ * @Last Modified time: 2019-02-18 20:43:57
  */
 'use strict'
 
@@ -25,7 +25,10 @@ module.exports = merge(common, {
     }
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),       // 用于启动HMR时显示模块的相对路径
-    new webpack.HotModuleReplacementPlugin()// Hot Module Replacement
+    new webpack.NamedModulesPlugin(),        // 用于启动HMR时显示模块的相对路径
+    new webpack.HotModuleReplacementPlugin(),// Hot Module Replacement
+    new webpack.DefinePlugin({
+      'process.env.MOCK': JSON.stringify('true')    // 是否开启MOCK
+    })
   ]
 })

@@ -2,7 +2,7 @@
  * @Author: chenwei 
  * @Date: 2019-01-27 14:04:38 
  * @Last Modified by: chenwei
- * @Last Modified time: 2019-02-18 08:47:03
+ * @Last Modified time: 2019-02-18 15:44:27
  */
 'use strict'
 const path = require('path');
@@ -31,6 +31,7 @@ module.exports = {
     modules: ['node_modules'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src')
     }
   },
   module: {
