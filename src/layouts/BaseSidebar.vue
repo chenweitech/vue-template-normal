@@ -1,11 +1,9 @@
 <script>
 // 读取路由配置文件
 import navConfig from '@/configs/SideBarConfig';
-import withAuthorization from './withAuthorization';
 
 export default {
   name: 'BaseSidebar',
-  mixins: [withAuthorization],
   render () {
     const subMenuItem = function (arr) {
       let components = [];
@@ -22,7 +20,7 @@ export default {
           unique-opened={navConfig.uniqueOpened}
           router>
           {
-            this.nav.map(item => {
+            this.$root.globalNavigationMenu.map(item => {
               return (
                 <el-submenu index={item.index}>
                   <template slot="title">

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import BaseSidebar from './BaseSidebar/BaseSidebar';
+import BaseSidebar from './BaseSidebar';
 
 export default {
   name: 'BasicLayout',

@@ -1,6 +1,5 @@
 {
   "desc": "侧边导航栏配置文件",
-  "withAuthorization": true,
   "defaultActive": "/page1/page1-1",
   "uniqueOpened": true,
   "config": [

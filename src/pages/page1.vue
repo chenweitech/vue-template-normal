@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello<el-tag>{{message}}</el-tag>
+    Hello<el-tag v-if="$_has('navigation:list1:delete')">{{message}}</el-tag>
   </div>
 </template>
 

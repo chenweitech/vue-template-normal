@@ -1,7 +1,7 @@
-import login from './user';
+import login from './getPermission';
 
 const api = {
-  getPermissions: login.getPermissions
+  getPermissions: login.getPermissions,
 }
 
 export default {
