@@ -1,27 +1,36 @@
 <template>
-  <div>
-    <el-row>
-      <el-col :span="3">
+  <el-container class="base-layout">
+    <el-header>
+      <BaseHeader />
+    </el-header>
+    <el-container>
+      <el-aside width="200px">
         <BaseSidebar />
-      </el-col>
-      <el-col :span="21">
+      </el-aside>
+      <el-main>
         <router-view />
-      </el-col>
-    </el-row>
-  </div>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
+import BaseHeader from './BaseHeader';
 import BaseSidebar from './BaseSidebar';
 
 export default {
   name: 'BasicLayout',
   components: {
-    BaseSidebar
+    BaseHeader, BaseSidebar
   }
 }
 </script>
 
 <style lang="scss">
-
+.base-layout {
+  height: 100%;
+  .el-header {
+    padding: 0;
+  }
+}
 </style>
